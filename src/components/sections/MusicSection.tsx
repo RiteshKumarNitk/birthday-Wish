@@ -13,12 +13,6 @@ export function MusicSection() {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const volumeRef = useRef(0.3);
 
-  useEffect(() => {
-    volumeRef.current = volume;
-    const p = (window as any).__ytPlayer;
-    if (p?.setVolume) p.setVolume(Math.round(volume * 100));
-  }, [volume]);
-
   const startMockVisuals = useCallback(() => {
     intervalRef.current = setInterval(() => {
       setBars(
@@ -33,6 +27,27 @@ export function MusicSection() {
     if (intervalRef.current) clearInterval(intervalRef.current);
     setBars(Array(BAR_COUNT).fill(8));
   }, []);
+
+  useEffect(() => {
+    let attempts = 0;
+    const check = () => {
+      const p = (window as any).__ytPlayer;
+      if (p?.getPlayerState && p.getPlayerState() === 1) {
+        setIsPlaying(true);
+        startMockVisuals();
+      } else if (attempts < 20) {
+        attempts++;
+        setTimeout(check, 250);
+      }
+    };
+    check();
+  }, [startMockVisuals]);
+
+  useEffect(() => {
+    volumeRef.current = volume;
+    const p = (window as any).__ytPlayer;
+    if (p?.setVolume) p.setVolume(Math.round(volume * 100));
+  }, [volume]);
 
   const togglePlay = useCallback(() => {
     const p = (window as any).__ytPlayer;
