@@ -24,14 +24,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Happy Birthday Tanu — A Love Letter in Code",
+  title: "Happy Birthday Versha — A Love Letter in Code",
   description:
-    "A premium, handcrafted birthday experience for Tanu. Every pixel tells a story.",
+    "A premium, handcrafted birthday experience for Versha. Every pixel tells a story.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Happy Birthday Tanu — A Love Letter in Code",
+    title: "Happy Birthday Versha — A Love Letter in Code",
     description:
-      "A premium, handcrafted birthday experience for Tanu. Every pixel tells a story.",
+      "A premium, handcrafted birthday experience for Versha. Every pixel tells a story.",
     type: "website",
   },
 };

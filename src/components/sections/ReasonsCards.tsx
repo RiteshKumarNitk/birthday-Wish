@@ -12,39 +12,39 @@ interface Reason {
 
 const reasons: Reason[] = [
   {
-    title: "Tanu's Smile",
+    title: "Versha's Smile",
     icon: "✦",
-    message: "It lights up every room you walk into, Tanu. Like the sun breaking through clouds.",
+    message: "It lights up every room you walk into, Versha. Like the sun breaking through clouds.",
     gradient: "from-[#ff2d78] to-[#f43f5e]",
   },
   {
-    title: "Tanu's Kindness",
+    title: "Versha's Kindness",
     icon: "♥",
-    message: "You care deeply about everyone around you, Tanu. The world is better because of you.",
+    message: "You care deeply about everyone around you, Versha. The world is better because of you.",
     gradient: "from-[#7c3aed] to-[#8b5cf6]",
   },
   {
-    title: "Tanu's Strength",
+    title: "Versha's Strength",
     icon: "◆",
-    message: "Through every challenge, you stand tall, Tanu. You inspire everyone who knows you.",
+    message: "Through every challenge, you stand tall, Versha. You inspire everyone who knows you.",
     gradient: "from-[#f59e0b] to-[#f97316]",
   },
   {
-    title: "Tanu's Laughter",
+    title: "Versha's Laughter",
     icon: "♫",
-    message: "It's contagious and beautiful, Tanu. The sound of pure joy that makes life wonderful.",
+    message: "It's contagious and beautiful, Versha. The sound of pure joy that makes life wonderful.",
     gradient: "from-[#ec4899] to-[#ff2d78]",
   },
   {
-    title: "Tanu's Heart",
+    title: "Versha's Heart",
     icon: "☆",
-    message: "So full of love and generosity, Tanu. You give without expecting anything in return.",
+    message: "So full of love and generosity, Versha. You give without expecting anything in return.",
     gradient: "from-[#8b5cf6] to-[#7c3aed]",
   },
   {
-    title: "Tanu's Magic",
+    title: "Versha's Magic",
     icon: "◈",
-    message: "There's something special about you, Tanu, that words can't capture. Pure magic.",
+    message: "There's something special about you, Versha, that words can't capture. Pure magic.",
     gradient: "from-[#ff2d78] to-[#f59e0b]",
   },
 ];
@@ -158,7 +158,7 @@ export function ReasonsCards() {
           className="mb-16 md:mb-24"
         >
           <span className="font-heading text-[10px] tracking-[0.3em] text-white/20 uppercase md:text-xs">
-            Why Tanu is Special
+            Why Versha is Special
           </span>
           <h2
             className="font-heading mt-3 leading-[0.95] tracking-tight md:mt-4"
@@ -168,7 +168,7 @@ export function ReasonsCards() {
               <SplitText text="Reasons I" mode="chars" stagger={0.04} delay={0.1} />
             </span>
             <br />
-            <SplitText text="Adore Tanu" className="gradient-text inline-block" mode="chars" stagger={0.04} delay={0.4} />
+            <SplitText text="Adore Versha" className="gradient-text inline-block" mode="chars" stagger={0.04} delay={0.4} />
           </h2>
         </motion.div>
 

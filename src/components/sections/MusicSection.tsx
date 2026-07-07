@@ -68,7 +68,7 @@ export function MusicSection() {
           className="mb-12 text-center md:mb-16"
         >
           <span className="font-heading text-[10px] tracking-[0.3em] text-white/20 uppercase md:text-xs">
-            Music for Tanu
+            Music for Versha
           </span>
           <h2
             className="font-heading mt-3 leading-[0.95] tracking-tight md:mt-4"

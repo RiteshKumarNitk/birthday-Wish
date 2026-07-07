@@ -8,12 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 const img = (path: string) => `/images/${encodeURIComponent(path)}`;
 
 const memories = [
-  { year: "2020", title: "The Beginning", description: "Where our story started. A moment that changed everything for Tanu and me.", color: "#ff2d78", image: img("image2_(1).jpeg") },
-  { year: "2021", title: "Growing Closer", description: "Laughter echoed through every conversation we shared with Tanu.", color: "#7c3aed", image: img("image2_(2).jpeg") },
-  { year: "2022", title: "Adventures", description: "Exploring the world together with Tanu, one memory at a time.", color: "#f59e0b", image: img("image2_(3).jpeg") },
-  { year: "2023", title: "Unforgettable", description: "The year Tanu and I created memories that will last a lifetime.", color: "#f43f5e", image: img("image2_(4).jpeg") },
-  { year: "2024", title: "Milestones", description: "Celebrating victories big and small, side by side with Tanu.", color: "#8b5cf6", image: img("image2_(5).jpeg") },
-  { year: "2025", title: "Forever", description: "Building dreams and painting our future together, Tanu.", color: "#ec4899", image: img("image2_(6).jpeg") },
+  { year: "2020", title: "The Beginning", description: "Where our story started. A moment that changed everything for Versha and me.", color: "#ff2d78", image: img("image2_(1).jpeg") },
+  { year: "2021", title: "Growing Closer", description: "Laughter echoed through every conversation we shared with Versha.", color: "#7c3aed", image: img("image2_(2).jpeg") },
+  { year: "2022", title: "Adventures", description: "Exploring the world together with Versha, one memory at a time.", color: "#f59e0b", image: img("image2_(3).jpeg") },
+  { year: "2023", title: "Unforgettable", description: "The year Versha and I created memories that will last a lifetime.", color: "#f43f5e", image: img("image2_(4).jpeg") },
+  { year: "2024", title: "Milestones", description: "Celebrating victories big and small, side by side with Versha.", color: "#8b5cf6", image: img("image2_(5).jpeg") },
+  { year: "2025", title: "Forever", description: "Building dreams and painting our future together, Versha.", color: "#ec4899", image: img("image2_(6).jpeg") },
 ];
 
 export function MemoryTimeline() {
@@ -44,7 +44,7 @@ export function MemoryTimeline() {
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#050505] to-transparent md:w-40" />
         <div className="pointer-events-none absolute left-0 top-0 z-20 px-6 pt-16 md:px-12 md:pt-20">
           <span className="font-heading text-[10px] tracking-[0.3em] text-white/15 uppercase md:text-xs">Timeline</span>
-          <h2 className="font-heading mt-2 leading-[0.95] tracking-tight text-white/70" style={{ fontSize: "clamp(1.6rem, 4vw, 3.5rem)" }}>Tanu &amp; Me</h2>
+          <h2 className="font-heading mt-2 leading-[0.95] tracking-tight text-white/70" style={{ fontSize: "clamp(1.6rem, 4vw, 3.5rem)" }}>Versha &amp; Me</h2>
         </div>
         <div ref={trackRef} className="flex items-center gap-8 pl-6 md:gap-16 md:pl-16">
           {memories.map((memory) => (
@@ -63,7 +63,7 @@ export function MemoryTimeline() {
           ))}
           <div className="flex w-[180px] flex-shrink-0 flex-col items-center justify-center gap-4 pr-8 md:w-[250px] md:pr-16">
             <div className="h-12 w-px bg-gradient-to-b from-white/20 to-transparent md:h-16" />
-            <span className="font-heading text-[10px] tracking-[0.3em] text-white/15 uppercase md:text-xs">The best is yet to come Tanu</span>
+            <span className="font-heading text-[10px] tracking-[0.3em] text-white/15 uppercase md:text-xs">The best is yet to come Versha</span>
             <span className="font-heading text-2xl text-white/20 md:text-3xl">✦</span>
           </div>
         </div>

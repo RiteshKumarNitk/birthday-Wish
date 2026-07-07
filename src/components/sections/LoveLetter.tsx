@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 import { SplitText } from "@/components/animations/SplitText";
 
 const letterContent = [
-  "To the most incredible Tanu I know,",
+  "To the most incredible Versha I know,",
   "",
-  "Today, on your special day, I find myself thinking about how lucky I am to have you in my life. Words seem inadequate to capture what you mean to me, Tanu, but I'll try anyway.",
+  "Today, on your special day, I find myself thinking about how lucky I am to have you in my life. Words seem inadequate to capture what you mean to me, Versha, but I'll try anyway.",
   "",
   "You have a way of making everything better. Your smile can brighten the darkest days, and your presence brings a sense of peace and joy that I've never known before.",
   "",
-  "Every moment with you, Tanu, feels like a gift. The way you care, the way you laugh, the way you see the beauty in everything — it inspires me to be a better person.",
+  "Every moment with you, Versha, feels like a gift. The way you care, the way you laugh, the way you see the beauty in everything — it inspires me to be a better person.",
   "",
-  "You are not just amazing, Tanu. You are extraordinary. You are rare. You are magic.",
+  "You are not just amazing, Versha. You are extraordinary. You are rare. You are magic.",
   "",
-  "Happy Birthday, my love Tanu. Here's to many more celebrations together.",
+  "Happy Birthday, my love Versha. Here's to many more celebrations together.",
   "",
   "With all my love,",
   "Forever yours ✦",
@@ -70,7 +70,7 @@ export function LoveLetter() {
             />
             <br />
             <SplitText
-              text="For Tanu"
+              text="For Versha"
               className="text-white/80 inline-block"
               mode="chars"
               stagger={0.05}
@@ -119,7 +119,7 @@ export function LoveLetter() {
                       <div className="mx-auto mt-3 h-3 w-5 rounded-full border border-white/10 md:mt-4 md:h-3 md:w-6" />
                     </motion.div>
                     <span className="font-heading text-xs tracking-widest text-white/30 uppercase md:text-sm">
-                      Open Letter for Tanu
+                      Open Letter for Versha
                     </span>
                   </motion.div>
 

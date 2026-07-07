@@ -49,28 +49,32 @@ export default function Home() {
   return (
     <>
       {loading && <Preloader onComplete={() => { setLoading(false); handleComplete(); }} />}
-      <Hero />
-      <PhotoReveal />
-      <MemoryTimeline />
-      <Marquee />
-      <Suspense fallback={<SectionFallback />}>
-        <ReasonsCards />
-      </Suspense>
-      <Suspense fallback={<SectionFallback />}>
-        <LoveLetter />
-      </Suspense>
-      <Suspense fallback={<SectionFallback />}>
-        <Gallery />
-      </Suspense>
-      <Suspense fallback={<SectionFallback />}>
-        <MusicSection />
-      </Suspense>
-      <Suspense fallback={<SectionFallback />}>
-        <Surprise />
-      </Suspense>
-      <Suspense fallback={<SectionFallback />}>
-        <FinalWishes />
-      </Suspense>
+      {!loading && (
+        <>
+          <Hero />
+          <PhotoReveal />
+          <MemoryTimeline />
+          <Marquee />
+          <Suspense fallback={<SectionFallback />}>
+            <ReasonsCards />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <LoveLetter />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <Gallery />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <MusicSection />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <Surprise />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <FinalWishes />
+          </Suspense>
+        </>
+      )}
     </>
   );
 }
