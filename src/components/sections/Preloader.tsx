@@ -3,10 +3,10 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const loadingMessages = [
-  "Something special is waiting for Versha...",
+  "Something special is waiting for Varsha...",
   "Gathering stardust...",
   "Wrapping memories...",
-  "Almost ready for Versha...",
+  "Almost ready for Varsha...",
 ];
 
 export function Preloader({ onComplete }: { onComplete: () => void }) {

@@ -240,7 +240,7 @@ export function Hero() {
               Birthday
             </span>
             <span className="hero-title-tanu block -mt-[0.06em] text-white/95">
-              Versha
+              Varsha
             </span>
           </h1>
         </div>

@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const marqueeText = "✦ Happy Birthday Versha ✦ Celebrate ✦ Love ✦ Joy ✦";
+const marqueeText = "✦ Happy Birthday Varsha ✦ Celebrate ✦ Love ✦ Joy ✦";
 
 export function Marquee() {
   const ref = useRef<HTMLDivElement>(null);

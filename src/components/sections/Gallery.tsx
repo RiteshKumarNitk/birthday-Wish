@@ -57,7 +57,7 @@ export function Gallery() {
     <section className="relative min-h-screen w-full px-4 py-24 md:px-8 lg:px-16 xl:px-24 md:py-32" style={{ backgroundColor: "var(--theme-bg, #050505)" }}>
       <div className="mx-auto max-w-7xl">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }} className="mb-16 md:mb-24">
-          <span className="font-heading text-[10px] tracking-[0.3em] text-white/20 uppercase md:text-xs">Versha's Gallery</span>
+          <span className="font-heading text-[10px] tracking-[0.3em] text-white/20 uppercase md:text-xs">Varsha's Gallery</span>
           <h2 className="font-heading mt-3 leading-[0.95] tracking-tight md:mt-4" style={{ fontSize: "clamp(2.2rem, 8vw, 6rem)" }}>
             <span className="text-white/80"><SplitText as="span" text="Picture" mode="chars" stagger={0.05} delay={0.1} /></span>
             <br />

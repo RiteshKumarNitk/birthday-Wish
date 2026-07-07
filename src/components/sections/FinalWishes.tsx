@@ -156,7 +156,7 @@ export function FinalWishes() {
             transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
           >
             <p className="font-heading text-[10px] tracking-[0.3em] text-white/20 uppercase md:text-xs">
-              For Versha
+              For Varsha
             </p>
           </motion.div>
 
@@ -182,7 +182,7 @@ export function FinalWishes() {
             </span>
             <br />
             <SplitText
-              text="brighter Versha"
+              text="brighter Varsha"
               className="gradient-text-pink inline-block"
               mode="chars"
               stagger={0.04}
@@ -197,7 +197,7 @@ export function FinalWishes() {
             transition={{ duration: 1, delay: 1.3 }}
             className="font-body max-w-xs text-sm leading-relaxed text-white/30 md:max-w-lg md:text-base"
           >
-            Happy Birthday Versha. You deserve all the joy this world has to
+            Happy Birthday Varsha. You deserve all the joy this world has to
             offer.
           </motion.p>
 

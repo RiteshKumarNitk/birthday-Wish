@@ -70,12 +70,12 @@ function FloatingBalloon({ index }: { index: number }) {
 }
 
 const surpriseMessages = [
-  "Versha lights up my world! ✨",
-  "Versha is my sunshine! ☀️",
-  "Absolutely extraordinary Versha! 🌟",
-  "The world is better with Versha! 🌍",
-  "Pure magic Versha! ✨",
-  "One in a million Versha! 💫",
+  "Varsha lights up my world! ✨",
+  "Varsha is my sunshine! ☀️",
+  "Absolutely extraordinary Varsha! 🌟",
+  "The world is better with Varsha! 🌍",
+  "Pure magic Varsha! ✨",
+  "One in a million Varsha! 💫",
 ];
 
 export function Surprise() {
@@ -121,7 +121,7 @@ export function Surprise() {
             />
             <br />
             <SplitText
-              text="For Versha"
+              text="For Varsha"
               className="text-white/80 inline-block"
               mode="chars"
               stagger={0.05}
@@ -170,7 +170,7 @@ export function Surprise() {
                   </motion.div>
                 </motion.div>
                 <span className="font-heading text-xs tracking-widest text-white/30 uppercase md:text-sm">
-                  Tap to open for Versha
+                  Tap to open for Varsha
                 </span>
               </motion.div>
             </motion.div>
