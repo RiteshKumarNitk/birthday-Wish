@@ -9,7 +9,7 @@ import { Starfield } from "@/components/animations/Starfield";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { ScrollConfetti } from "@/components/animations/ScrollConfetti";
 import { BackgroundTheme } from "@/components/animations/BackgroundTheme";
-import { FirstInteractionMusic } from "@/components/animations/FirstInteractionMusic";
+
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-heading",
@@ -50,7 +50,6 @@ export default function RootLayout({
     >
       <body>
         <BackgroundTheme />
-        <FirstInteractionMusic />
         <NoiseOverlay />
         <Starfield />
         <CustomCursor />

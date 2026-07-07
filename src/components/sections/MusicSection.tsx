@@ -1,61 +1,59 @@
 "use client";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AudioEngine } from "@/lib/audioEngine";
 import { SplitText } from "@/components/animations/SplitText";
+
+const BAR_COUNT = 20;
+const MOCK_INTERVAL = 120;
 
 export function MusicSection() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.5);
-  const engineRef = useRef<AudioEngine | null>(null);
-  const [bars, setBars] = useState<number[]>(Array(16).fill(8));
-  const rafRef = useRef<number>(0);
+  const [volume, setVolume] = useState(0.3);
+  const [bars, setBars] = useState<number[]>(Array(BAR_COUNT).fill(8));
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const volumeRef = useRef(0.3);
 
   useEffect(() => {
-    const engine = new AudioEngine();
-    engineRef.current = engine;
-    engine.init().catch(() => {});
-
-    return () => {
-      engine.destroy();
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (engineRef.current) {
-      engineRef.current.setVolume(volume);
-    }
+    volumeRef.current = volume;
+    const p = (window as any).__ytPlayer;
+    if (p?.setVolume) p.setVolume(Math.round(volume * 100));
   }, [volume]);
 
+  const startMockVisuals = useCallback(() => {
+    intervalRef.current = setInterval(() => {
+      setBars(
+        Array.from({ length: BAR_COUNT }, () =>
+          Math.max(6, Math.random() * 48 + 6)
+        )
+      );
+    }, MOCK_INTERVAL);
+  }, []);
+
+  const stopMockVisuals = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    setBars(Array(BAR_COUNT).fill(8));
+  }, []);
+
   const togglePlay = useCallback(() => {
-    const engine = engineRef.current;
-    if (!engine) return;
+    const p = (window as any).__ytPlayer;
+    if (!p?.playVideo) return;
 
     if (isPlaying) {
-      engine.stop();
+      p.pauseVideo();
       setIsPlaying(false);
-      cancelAnimationFrame(rafRef.current);
+      stopMockVisuals();
     } else {
-      engine.start();
+      p.playVideo();
       setIsPlaying(true);
-
-      const update = () => {
-        const data = engine.getAnalyserData();
-        if (data.length) {
-          const sampled: number[] = [];
-          const step = Math.floor(data.length / 16);
-          for (let i = 0; i < 16; i++) {
-            const val = data[i * step] || 0;
-            sampled.push(Math.max(6, (val / 255) * 50 + 6));
-          }
-          setBars(sampled);
-        }
-        rafRef.current = requestAnimationFrame(update);
-      };
-      rafRef.current = requestAnimationFrame(update);
+      startMockVisuals();
     }
-  }, [isPlaying]);
+  }, [isPlaying, startMockVisuals, stopMockVisuals]);
+
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
 
   return (
     <section className="relative min-h-screen w-full bg-[#050505] px-4 py-24 md:px-8 lg:px-16 xl:px-24 md:py-32">
@@ -75,10 +73,11 @@ export function MusicSection() {
             style={{ fontSize: "clamp(2.2rem, 8vw, 6rem)" }}
           >
             <span className="text-white/80">
-              <SplitText text="Our" mode="chars" stagger={0.05} delay={0.1} />
+              <SplitText as="span" text="Our" mode="chars" stagger={0.05} delay={0.1} />
             </span>
             <br />
             <SplitText
+              as="span"
               text="Soundtrack"
               className="gradient-text inline-block"
               mode="chars"
@@ -135,7 +134,7 @@ export function MusicSection() {
             data-cursor-hover
           >
             <span className="font-heading text-xs tracking-widest uppercase md:text-sm">
-              {isPlaying ? "Pause" : "Play Melody"}
+              {isPlaying ? "Pause" : "Play Song"}
             </span>
             <span className="text-lg">{isPlaying ? "⏸" : "▶"}</span>
           </motion.button>
@@ -147,7 +146,8 @@ export function MusicSection() {
               onClick={(e) => {
                 const rect = e.currentTarget.getBoundingClientRect();
                 const x = e.clientX - rect.left;
-                setVolume(Math.min(Math.max(x / rect.width, 0), 1));
+                const v = Math.min(Math.max(x / rect.width, 0), 1);
+                setVolume(v);
               }}
             >
               <motion.div
