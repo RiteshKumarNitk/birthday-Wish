@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, lazy, Suspense } from "react";
 import { Preloader } from "@/components/sections/Preloader";
+import { BackgroundMusic } from "@/components/BackgroundMusic";
 import { Hero } from "@/components/sections/Hero";
 import { PhotoReveal } from "@/components/sections/PhotoReveal";
 import { MemoryTimeline } from "@/components/sections/MemoryTimeline";
@@ -51,6 +52,7 @@ export default function Home() {
       {loading && <Preloader onComplete={() => { setLoading(false); handleComplete(); }} />}
       {!loading && (
         <>
+          <BackgroundMusic />
           <Hero />
           <PhotoReveal />
           <MemoryTimeline />

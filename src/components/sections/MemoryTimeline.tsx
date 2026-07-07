@@ -55,7 +55,10 @@ export function MemoryTimeline() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </div>
               <div className="space-y-2 px-1 md:space-y-3 md:px-2">
-                <span className="font-heading text-xs tracking-[0.2em] uppercase md:text-sm" style={{ color: memory.color }}>{memory.year}</span>
+                <span className="flex items-center gap-2 font-heading text-xs tracking-[0.2em] uppercase md:text-sm" style={{ color: memory.color }}>
+                  <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: memory.color }} />
+                  &nbsp;
+                </span>
                 <h3 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">{memory.title}</h3>
                 <p className="font-body text-sm leading-relaxed text-white/40 md:text-base">{memory.description}</p>
               </div>
