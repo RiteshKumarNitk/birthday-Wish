@@ -1,19 +1,20 @@
 "use client";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
+import { SplitText } from "@/components/animations/SplitText";
 
 const letterContent = [
-  "To the most incredible person I know,",
+  "To the most incredible Tanu I know,",
   "",
-  "Today, on your special day, I find myself thinking about how lucky I am to have you in my life. Words seem inadequate to capture what you mean to me, but I'll try anyway.",
+  "Today, on your special day, I find myself thinking about how lucky I am to have you in my life. Words seem inadequate to capture what you mean to me, Tanu, but I'll try anyway.",
   "",
   "You have a way of making everything better. Your smile can brighten the darkest days, and your presence brings a sense of peace and joy that I've never known before.",
   "",
-  "Every moment with you feels like a gift. The way you care, the way you laugh, the way you see the beauty in everything — it inspires me to be a better person.",
+  "Every moment with you, Tanu, feels like a gift. The way you care, the way you laugh, the way you see the beauty in everything — it inspires me to be a better person.",
   "",
-  "You are not just amazing. You are extraordinary. You are rare. You are magic.",
+  "You are not just amazing, Tanu. You are extraordinary. You are rare. You are magic.",
   "",
-  "Happy Birthday, my love. Here's to many more celebrations together.",
+  "Happy Birthday, my love Tanu. Here's to many more celebrations together.",
   "",
   "With all my love,",
   "Forever yours ✦",
@@ -23,8 +24,6 @@ export function LoveLetter() {
   const [visibleLines, setVisibleLines] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   const startTyping = useCallback(() => {
     let lineIndex = 0;
@@ -35,7 +34,7 @@ export function LoveLetter() {
         clearInterval(interval);
         setIsComplete(true);
       }
-    }, 400);
+    }, 350);
     return () => clearInterval(interval);
   }, []);
 
@@ -46,27 +45,37 @@ export function LoveLetter() {
   }, [isOpen, startTyping]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen w-full bg-[#050505] px-4 py-32 md:px-12 lg:px-24"
-    >
+    <section className="relative min-h-screen w-full bg-[#050505] px-4 py-24 md:px-8 lg:px-16 xl:px-24 md:py-32">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="mb-12 text-center md:mb-16"
         >
-          <span className="font-heading text-sm tracking-[0.3em] text-white/30 uppercase">
+          <span className="font-heading text-[10px] tracking-[0.3em] text-white/20 uppercase md:text-xs">
             From The Heart
           </span>
-          <h2 className="font-heading mt-4 leading-[0.95] tracking-tight"
-            style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)" }}
+          <h2
+            className="font-heading mt-3 leading-[0.95] tracking-tight md:mt-4"
+            style={{ fontSize: "clamp(2.2rem, 8vw, 6rem)" }}
           >
-            <span className="gradient-text-pink">A Letter</span>
+            <SplitText
+              text="A Letter"
+              className="gradient-text-pink inline-block"
+              mode="chars"
+              stagger={0.05}
+              delay={0.1}
+            />
             <br />
-            <span className="text-white/80">For You</span>
+            <SplitText
+              text="For Tanu"
+              className="text-white/80 inline-block"
+              mode="chars"
+              stagger={0.05}
+              delay={0.4}
+            />
           </h2>
         </motion.div>
 
@@ -77,11 +86,11 @@ export function LoveLetter() {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-[1px]">
-            <div className="relative rounded-3xl bg-[#0D0D0D] p-8 md:p-16">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-[1px] md:rounded-3xl">
+            <div className="relative rounded-2xl bg-[#0D0D0D] p-6 md:p-12 md:rounded-3xl">
               {!isOpen ? (
                 <motion.div
-                  className="flex flex-col items-center gap-8 py-16"
+                  className="flex flex-col items-center gap-8 py-12 md:py-16"
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
@@ -92,25 +101,29 @@ export function LoveLetter() {
                     data-cursor-hover
                   >
                     <motion.div
-                      className="h-16 w-12 rounded-md border-2 border-white/20 bg-white/5"
+                      className="h-14 w-10 rounded border-2 border-white/15 bg-white/[0.03] md:h-16 md:w-12 md:rounded-md"
                       animate={{
                         y: [0, -4, 0],
                         borderColor: [
-                          "rgba(255,255,255,0.2)",
-                          "rgba(255,45,120,0.4)",
-                          "rgba(255,255,255,0.2)",
+                          "rgba(255,255,255,0.15)",
+                          "rgba(255,45,120,0.3)",
+                          "rgba(255,255,255,0.15)",
                         ],
                       }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
                     >
-                      <div className="mx-auto mt-4 h-3 w-6 rounded-full border border-white/10" />
+                      <div className="mx-auto mt-3 h-3 w-5 rounded-full border border-white/10 md:mt-4 md:h-3 md:w-6" />
                     </motion.div>
-                    <span className="font-heading text-sm tracking-widest text-white/40 uppercase">
-                      Open Letter
+                    <span className="font-heading text-xs tracking-widest text-white/30 uppercase md:text-sm">
+                      Open Letter for Tanu
                     </span>
                   </motion.div>
 
-                  <p className="text-center font-body text-base leading-relaxed text-white/30">
+                  <p className="text-center font-body text-sm leading-relaxed text-white/20 md:text-base">
                     Click to open a message written from the heart
                   </p>
                 </motion.div>
@@ -121,9 +134,9 @@ export function LoveLetter() {
                   transition={{ duration: 0.5 }}
                   className="space-y-2"
                 >
-                  <div className="mb-8 flex items-center gap-4">
+                  <div className="mb-6 flex items-center gap-4 md:mb-8">
                     <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                    <span className="font-heading text-xs tracking-[0.3em] text-white/20 uppercase">
+                    <span className="font-heading text-xs tracking-[0.3em] text-white/15 uppercase">
                       ✦
                     </span>
                     <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -133,26 +146,29 @@ export function LoveLetter() {
                     <motion.p
                       key={i}
                       initial={{ opacity: 0 }}
-                      animate={{
-                        opacity: i < visibleLines ? 1 : 0,
-                      }}
+                      animate={{ opacity: i < visibleLines ? 1 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className={`font-body leading-relaxed ${
+                      className={`leading-relaxed ${
                         line === ""
-                          ? "h-4"
-                          : line.startsWith("With") || line.startsWith("Forever")
-                            ? "mt-8 text-white/40"
-                            : "text-white/70"
-                      } ${line.startsWith("To the") ? "text-lg text-white/90" : ""}`}
-                      style={{
-                        fontFamily: "'Georgia', serif",
-                        fontSize: line.startsWith("To the") || line.startsWith("Happy") || line.startsWith("With") || line.startsWith("Forever") ? "1.1rem" : "1rem",
-                      }}
+                          ? "h-3 md:h-4"
+                          : line.startsWith("With") ||
+                              line.startsWith("Forever")
+                            ? "mt-6 text-white/30 md:mt-8"
+                            : "text-white/60"
+                      } ${
+                        line.startsWith("To the")
+                          ? "text-base text-white/85 md:text-lg"
+                          : "text-sm md:text-base"
+                      }`}
+                      style={{ fontFamily: "'Georgia', serif" }}
                     >
                       {line}
-                      {i < visibleLines && i < letterContent.length - 1 && i >= visibleLines - 1 && !isComplete && (
-                        <span className="ml-[1px] inline-block h-4 w-[2px] bg-white/60 animate-pulse" />
-                      )}
+                      {i < visibleLines &&
+                        i < letterContent.length - 1 &&
+                        i >= visibleLines - 1 &&
+                        !isComplete && (
+                          <span className="ml-[1px] inline-block h-4 w-[2px] bg-white/40 animate-pulse" />
+                        )}
                     </motion.p>
                   ))}
 
@@ -161,10 +177,10 @@ export function LoveLetter() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
-                      className="mt-8 flex items-center gap-4"
+                      className="mt-6 flex items-center gap-4 md:mt-8"
                     >
                       <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                      <span className="font-heading text-xs tracking-[0.3em] text-white/20 uppercase">
+                      <span className="font-heading text-xs tracking-[0.3em] text-white/15 uppercase">
                         ✦
                       </span>
                       <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />

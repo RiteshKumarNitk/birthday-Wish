@@ -4,6 +4,7 @@ import { Preloader } from "@/components/sections/Preloader";
 import { Hero } from "@/components/sections/Hero";
 import { PhotoReveal } from "@/components/sections/PhotoReveal";
 import { MemoryTimeline } from "@/components/sections/MemoryTimeline";
+import { Marquee } from "@/components/sections/Marquee";
 const ReasonsCards = lazy(() =>
   import("@/components/sections/ReasonsCards").then((m) => ({ default: m.ReasonsCards }))
 );
@@ -25,7 +26,7 @@ const FinalWishes = lazy(() =>
 
 function SectionFallback() {
   return (
-    <div className="flex h-screen items-center justify-center bg-[#050505]">
+    <div className="flex h-screen items-center justify-center" style={{ backgroundColor: "var(--theme-bg, #050505)" }}>
       <div className="h-8 w-8 animate-pulse rounded-full bg-white/5" />
     </div>
   );
@@ -51,6 +52,7 @@ export default function Home() {
       <Hero />
       <PhotoReveal />
       <MemoryTimeline />
+      <Marquee />
       <Suspense fallback={<SectionFallback />}>
         <ReasonsCards />
       </Suspense>

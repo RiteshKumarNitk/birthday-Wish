@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { SplitText } from "@/components/animations/SplitText";
 
 interface Reason {
   title: string;
@@ -11,39 +12,39 @@ interface Reason {
 
 const reasons: Reason[] = [
   {
-    title: "Your Smile",
+    title: "Tanu's Smile",
     icon: "✦",
-    message: "It lights up every room you walk into. Like the sun breaking through clouds.",
+    message: "It lights up every room you walk into, Tanu. Like the sun breaking through clouds.",
     gradient: "from-[#ff2d78] to-[#f43f5e]",
   },
   {
-    title: "Your Kindness",
+    title: "Tanu's Kindness",
     icon: "♥",
-    message: "You care deeply about everyone around you. The world is better because of you.",
+    message: "You care deeply about everyone around you, Tanu. The world is better because of you.",
     gradient: "from-[#7c3aed] to-[#8b5cf6]",
   },
   {
-    title: "Your Strength",
+    title: "Tanu's Strength",
     icon: "◆",
-    message: "Through every challenge, you stand tall. You inspire everyone who knows you.",
+    message: "Through every challenge, you stand tall, Tanu. You inspire everyone who knows you.",
     gradient: "from-[#f59e0b] to-[#f97316]",
   },
   {
-    title: "Your Laughter",
+    title: "Tanu's Laughter",
     icon: "♫",
-    message: "It's contagious and beautiful. The sound of pure joy that makes life wonderful.",
+    message: "It's contagious and beautiful, Tanu. The sound of pure joy that makes life wonderful.",
     gradient: "from-[#ec4899] to-[#ff2d78]",
   },
   {
-    title: "Your Heart",
+    title: "Tanu's Heart",
     icon: "☆",
-    message: "So full of love and generosity. You give without expecting anything in return.",
+    message: "So full of love and generosity, Tanu. You give without expecting anything in return.",
     gradient: "from-[#8b5cf6] to-[#7c3aed]",
   },
   {
-    title: "Your Magic",
+    title: "Tanu's Magic",
     icon: "◈",
-    message: "There's something special about you that words can't capture. Pure magic.",
+    message: "There's something special about you, Tanu, that words can't capture. Pure magic.",
     gradient: "from-[#ff2d78] to-[#f59e0b]",
   },
 ];
@@ -91,9 +92,15 @@ function TiltCard({ reason, index }: { reason: Reason; index: number }) {
         onMouseLeave={handleMouseLeave}
         onClick={() => setIsFlipped(!isFlipped)}
         style={{ rotateX, rotateY }}
-        className="preserve-3d relative h-[320px] w-full cursor-pointer"
+        className="preserve-3d relative h-[340px] w-full cursor-pointer group"
         data-cursor-hover
       >
+        <motion.div
+          className="absolute -inset-2 rounded-2xl opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100"
+          style={{
+            background: `radial-gradient(circle, ${reason.gradient.includes("ff2d78") ? "#ff2d78" : reason.gradient.includes("7c3aed") ? "#7c3aed" : reason.gradient.includes("f59e0b") ? "#f59e0b" : "#ec4899"}22, transparent 70%)`,
+          }}
+        />
         <motion.div
           className="absolute inset-0 rounded-2xl glass p-8 backface-hidden"
           style={{ backfaceVisibility: "hidden" }}
@@ -102,13 +109,19 @@ function TiltCard({ reason, index }: { reason: Reason; index: number }) {
         >
           <div className="flex h-full flex-col justify-between">
             <div>
-              <span className="inline-block text-3xl">{reason.icon}</span>
+              <motion.span
+                className="inline-block text-3xl"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                {reason.icon}
+              </motion.span>
               <h3 className="font-heading mt-4 text-2xl font-semibold tracking-tight text-white">
                 {reason.title}
               </h3>
             </div>
             <div>
-              <span className="font-body text-sm tracking-wider text-white/30 uppercase">
+              <span className="font-body text-sm tracking-wider text-white/20 uppercase">
                 Click to reveal
               </span>
               <div className="mt-2 h-[2px] w-12" style={{
@@ -135,24 +148,27 @@ function TiltCard({ reason, index }: { reason: Reason; index: number }) {
 
 export function ReasonsCards() {
   return (
-    <section className="relative min-h-screen w-full bg-[#050505] px-4 py-32 md:px-12 lg:px-24">
+    <section className="relative min-h-screen w-full bg-[#050505] px-4 py-24 md:px-8 lg:px-16 xl:px-24 md:py-32">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
-          className="mb-24"
+          className="mb-16 md:mb-24"
         >
-          <span className="font-heading text-sm tracking-[0.3em] text-white/30 uppercase">
-            Why You're Special
+          <span className="font-heading text-[10px] tracking-[0.3em] text-white/20 uppercase md:text-xs">
+            Why Tanu is Special
           </span>
-          <h2 className="font-heading mt-4 leading-[0.95] tracking-tight"
-            style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)" }}
+          <h2
+            className="font-heading mt-3 leading-[0.95] tracking-tight md:mt-4"
+            style={{ fontSize: "clamp(2.2rem, 8vw, 6rem)" }}
           >
-            <span className="text-white/80">Reasons I</span>
+            <span className="text-white/80">
+              <SplitText text="Reasons I" mode="chars" stagger={0.04} delay={0.1} />
+            </span>
             <br />
-            <span className="gradient-text">Adore You</span>
+            <SplitText text="Adore Tanu" className="gradient-text inline-block" mode="chars" stagger={0.04} delay={0.4} />
           </h2>
         </motion.div>
 

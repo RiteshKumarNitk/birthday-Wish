@@ -3,10 +3,10 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const loadingMessages = [
-  "Something special is waiting...",
+  "Something special is waiting for Tanu...",
   "Gathering stardust...",
   "Wrapping memories...",
-  "Almost ready...",
+  "Almost ready for Tanu...",
 ];
 
 export function Preloader({ onComplete }: { onComplete: () => void }) {
@@ -24,7 +24,12 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
       currentStep++;
       const newProgress = Math.min((currentStep / steps) * 100, 100);
       setProgress(newProgress);
-      setMessageIndex(Math.min(Math.floor((newProgress / 100) * loadingMessages.length), loadingMessages.length - 1));
+      setMessageIndex(
+        Math.min(
+          Math.floor((newProgress / 100) * loadingMessages.length),
+          loadingMessages.length - 1
+        )
+      );
 
       if (newProgress >= 100) {
         clearInterval(timer);
@@ -51,7 +56,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
         >
-          <div className="relative flex flex-col items-center gap-12">
+          <div className="relative flex flex-col items-center gap-10 md:gap-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -62,13 +67,13 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="font-heading text-lg tracking-[0.3em] text-white/60 uppercase"
+                className="font-heading text-sm tracking-[0.3em] text-white/30 uppercase md:text-base"
               >
                 {loadingMessages[messageIndex]}
               </motion.p>
             </motion.div>
 
-            <div className="relative h-[2px] w-48 overflow-hidden bg-white/10">
+            <div className="relative h-[2px] w-40 overflow-hidden bg-white/10 md:w-48">
               <motion.div
                 className="absolute left-0 top-0 h-full"
                 style={{
@@ -82,14 +87,14 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="font-heading text-4xl font-light tracking-wider text-white/40"
+              className="font-heading text-3xl font-light tracking-wider text-white/20 md:text-4xl"
             >
               {Math.round(progress)}%
             </motion.p>
           </div>
 
           <motion.div
-            className="absolute bottom-20 flex gap-2"
+            className="absolute bottom-16 flex gap-2 md:bottom-20"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
@@ -97,9 +102,9 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
             {[...Array(3)].map((_, i) => (
               <motion.div
                 key={i}
-                className="h-1.5 w-1.5 rounded-full bg-white/30"
+                className="h-1.5 w-1.5 rounded-full bg-white/20"
                 animate={{
-                  opacity: [0.3, 1, 0.3],
+                  opacity: [0.2, 1, 0.2],
                   scale: [1, 1.5, 1],
                 }}
                 transition={{
